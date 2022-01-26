@@ -7,6 +7,9 @@
       <li>
         <nuxt-link to="/about">About</nuxt-link>
       </li>
+      <li>
+        <nuxt-link to="/restaurants">Restaurant</nuxt-link>
+      </li>
     </ul>
   </nav>
 </template>
