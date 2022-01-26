@@ -1,11 +1,13 @@
 <template>
   <main class="container">
-    <h1>Hi From Home</h1>
+    <app-header />
   </main>
 </template>
 
 <script>
+import AppHeader from "../components/AppHeader.vue";
 export default {
+  components: { AppHeader },
   name: "IndexPage",
 };
 </script>
