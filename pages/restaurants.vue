@@ -1,7 +1,9 @@
 <template>
   <main class="container restaurant">
     <div class="restaurantheading">
-      <h1>Restaurant</h1>
+      <h1>Restaurants</h1>
+      <AppSelect @change="selectedRestaurant = $event" />
+      <pre>{{ $data }}</pre>
     </div>
     <app-restaurant-info />
   </main>
@@ -9,8 +11,14 @@
 
 <script>
 import AppRestaurantInfo from "../components/AppRestaurantInfo.vue";
+import AppSelect from "../components/AppSelect.vue";
 export default {
-  components: { AppRestaurantInfo },
+  components: { AppRestaurantInfo, AppSelect },
+  data() {
+    return {
+      selectedRestaurant: "",
+    };
+  },
 };
 </script>
 
