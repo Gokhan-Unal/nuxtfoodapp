@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <main class="container restaurant">
-      <app-restaurant-info />
-    </main>
-  </div>
+  <main class="container restaurant">
+    <div class="restaurantheading">
+      <h1>Restaurant</h1>
+    </div>
+    <app-restaurant-info />
+  </main>
 </template>
 
 <script>
