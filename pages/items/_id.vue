@@ -12,7 +12,7 @@
 
       <div class="quantity">
         <input type="number" min="1" v-model="count" />
-        <button @click="addToCart" class="primary">
+        <button class="primary" @click="addToCart">
           Add to Cart - ${{ combinedPrice }}
         </button>
       </div>
@@ -48,11 +48,12 @@
           <label :for="addon">{{ addon }}</label>
         </div>
       </fieldset>
-      <app-toast v-if="cardSubmitted"
-        >Order Submitted! <br />
-        Check out more restaurants
-        <nuxt-link to="/restaurants"> restaurants</nuxt-link></app-toast
-      >
+
+      <app-toast v-if="cartSubmitted">
+        Order Added!
+        <br />Return to
+        <nuxt-link to="/restaurants">restaurants</nuxt-link>
+      </app-toast>
     </section>
 
     <section class="options">
@@ -62,13 +63,14 @@
   </main>
 </template>
 
-
 <script>
 import { mapState } from "vuex";
-import AppToast from "../../components/AppToast.vue";
+import AppToast from "@/components/AppToast.vue";
 
 export default {
-  components: { AppToast },
+  components: {
+    AppToast,
+  },
   data() {
     return {
       id: this.$route.params.id,
@@ -82,8 +84,9 @@ export default {
   computed: {
     ...mapState(["fooddata"]),
     currentItem() {
+      // more efficient than forEach because we can break
       let result;
-      // get the item from the store
+
       for (let i = 0; i < this.fooddata.length; i++) {
         for (let j = 0; j < this.fooddata[i].menu.length; j++) {
           if (this.fooddata[i].menu[j].id === this.id) {
@@ -92,6 +95,7 @@ export default {
           }
         }
       }
+
       return result;
     },
     combinedPrice() {
@@ -105,11 +109,11 @@ export default {
         item: this.currentItem.item,
         count: this.count,
         options: this.itemOptions,
-        addons: this.itemAddons,
+        addOns: this.itemAddons,
         combinedPrice: this.combinedPrice,
-      }
-      this.cartSubmitted = true;
+      };
 
+      this.cartSubmitted = true;
     },
   },
 };
@@ -126,6 +130,7 @@ export default {
   grid-row-gap: 60px;
   line-height: 2;
 }
+
 .image {
   grid-area: 1 / 1 / 2 / 2;
   background-size: cover;
