@@ -114,6 +114,7 @@ export default {
       };
 
       this.cartSubmitted = true;
+      this.$store.commit("addToCart");
     },
   },
 };
