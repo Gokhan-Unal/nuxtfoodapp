@@ -6,6 +6,14 @@ export const state = () => ({
 });
 
 export const getters = {
+  cartCount: (state) => {
+    if (state.cart.length === 0) {
+      return 0;
+    }
+    return state.cart.reduce((acc, cur) => {
+      return acc + +cur.count;
+    }, 0);
+  },
   totalPrice: (state) => {
     if (!state.cart.length) {
       return 0;
