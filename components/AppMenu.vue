@@ -10,6 +10,9 @@
       <li>
         <nuxt-link to="/restaurants">Restaurant</nuxt-link>
       </li>
+      <li>
+        <nuxt-link to="/cart">Cart</nuxt-link>
+      </li>
     </ul>
   </nav>
 </template>
