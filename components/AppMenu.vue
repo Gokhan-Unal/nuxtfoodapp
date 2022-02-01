@@ -2,7 +2,7 @@
   <nav>
     <ul>
       <li>
-        <nuxt-link exact to="/">Home</nuxt-link>
+        <nuxt-link exact to="/"><app-logo /></nuxt-link>
       </li>
       <li>
         <nuxt-link to="/about">About</nuxt-link>
@@ -18,7 +18,13 @@
 </template>
 
 <script>
-export default {};
+import AppLogo from "./AppLogo.vue";
+
+export default {
+  components: {
+    AppLogo,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
