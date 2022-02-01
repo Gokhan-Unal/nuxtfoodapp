@@ -5,11 +5,16 @@ export const state = () => ({
   cart: [],
 });
 
-// export const getters = {
-//   getterValue: state => {
-//     return state.value
-//   }
-// }
+export const getters = {
+  totalPrice: (state) => {
+    if (!state.cart.length) {
+      return 0;
+    }
+    return state.cart.reduce((acc, item) => {
+      return acc + +item.combinedPrice;
+    }, 0);
+  },
+};
 
 export const mutations = {
   updateFoodData: (state, data) => {
